@@ -2,7 +2,7 @@ function onReady() {
   let toDoId = 0;
   let toDos = [];
 
-  const addToDoForm = getElementById('addToDoForm');
+  const addToDoForm = document.getElementById('addToDoForm');
 
   function renderTheUI() {
     const toDoList = document.getElementById('toDoList');
