@@ -30,7 +30,7 @@ function onReady() {
       });
   }
 
-  addToDoForm.addEvenListener('submit', event => {
+  addToDoForm.addEventListener('submit', event => {
     event.preventDefault();
     createNewToDo();
   });
