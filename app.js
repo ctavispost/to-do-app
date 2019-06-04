@@ -35,15 +35,15 @@ function onReady() {
         newLi.appendChild(checkbox);
         newLi.appendChild(deleteButton);
 
-        deleteButton.addEvenListener('click', () => {
-          
+        deleteButton.addEventListener('click', () => {
+
 
           renderTheUI();
         });
       });
   }
 
-  addToDoForm.addEvenListener('submit', event => {
+  addToDoForm.addEventListener('submit', event => {
     event.preventDefault();
     createNewToDo();
   });
