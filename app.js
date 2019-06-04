@@ -1,4 +1,5 @@
 function onReady() {
+  let idNumber = 0;
   const toDos = [];
 
   function createNewToDo() {
@@ -6,9 +7,11 @@ function onReady() {
     if (!newToDoText.value) { return; }
     toDos.push({
       title: newToDoText.value,
-      complete: false
+      complete: false,
+      id: idNumber;
     });
     newToDoText.value = '';
+    idNumber += 1;
 
     renderTheUI();
   }
@@ -23,10 +26,20 @@ function onReady() {
         const checkbox = document.createElement('input');
         checkbox.type = 'checkbox';
 
+        const deleteButton = document.createElement('button');
+        deleteButton.innerHTML = "<span>Delete</span>";
+
         newLi.textContent = toDo.title;
 
         toDoList.appendChild(newLi);
         newLi.appendChild(checkbox);
+        newLi.appendChild(deleteButton);
+
+        deleteButton.addEvenListener('click', () => {
+          
+
+          renderTheUI();
+        });
       });
   }
 
