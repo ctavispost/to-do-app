@@ -5,7 +5,7 @@ function onReady() {
   console.log(toDos);
   console.log(toDos === null);
 
-  let toDoId = toDos.legth;
+  let toDoId = toDos.length;
 
   console.log(toDos);
   console.log(toDoId);
