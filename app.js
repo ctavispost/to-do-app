@@ -12,7 +12,6 @@ function loadToDos() {
   todoData.toDos = JSON.parse( localStorage.getItem('toDos') ) || [];
   todoData.nextToDoId = JSON.parse( localStorage.getItem('nextToDoId') ) || [];
   console.log(todoData.toDos);
-  console.log(todoData.toDos === null);
 }
 
 function createDeleteButton(toDoId) {
