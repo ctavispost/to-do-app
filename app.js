@@ -1,17 +1,14 @@
 function onReady() {
 
   //retreive local Storage and return list to toDos array and set counter, or reset array and coutner
-  const toDoMemory = localStorage.getItem('toDos');
-  console.log(toDoMemory);
-  console.log(toDoMemory === null);
-  
-  if (toDoMemory === null) {
-    let toDoId = 0;
-    let toDos = [];
-  } else {
-    let toDos = JSON.parse(toDoMemory);
-    let toDoId = toDos.length;
-  }
+  let toDos = JSON.parse( localStorage.getItem('toDos') ) || [];
+  console.log(toDos);
+  console.log(toDos === null);
+
+  let toDoId = toDos.legth;
+
+  console.log(toDos);
+  console.log(toDoId);
 
   const addToDoForm = document.getElementById('addToDoForm');
 
@@ -36,7 +33,6 @@ function onReady() {
         console.log(toDo.complete);
       });
 
-
       //delete button removes list items
       const deleteButton = document.createElement('button');
       deleteButton.textContent = 'Delete';
@@ -45,6 +41,9 @@ function onReady() {
         toDos = toDos.filter(function(item) {
           return item.id !== toDo.id;
         });
+
+        localStorage.clear();
+        localStorage.setItem('toDos', JSON.stringify(toDos));
 
         renderTheUI();
       });
@@ -56,6 +55,17 @@ function onReady() {
       newLi.appendChild(deleteButton);
     });
   }
+
+  //set toDos to match local memory
+  /*if (toDoMemory !== null) {
+    let toDos = JSON.parse(toDoMemory);
+    let toDoId = toDos.length;
+
+    renderTheUI();
+  }*/
+
+  console.log(toDos);
+  console.log(toDoId);
 
   function createNewToDo() {
     const newToDoText = document.getElementById('newToDoText');
